@@ -1,0 +1,12 @@
+    BitlyClient.addPageLoadEvent(function(){
+      BitlyCB.myShortenCallback = function(data) {
+        // this is how to get a result of shortening a single url
+        var result;
+        for (var r in data.results) {
+          result = data.results[r];
+          result['longUrl'] = r;
+                 break;
+                 }
+                 document.getElementById("shorturl").innerHTML = "<div id='shorternh2'>شارك رابط المقالة</div> <input type='text'  class='textinpo' value='" + result['shortUrl'] + "' name='bitlyurl'/>";}
+                 BitlyClient.shorten(document.location, 'BitlyCB.myShortenCallback');
+                 });
